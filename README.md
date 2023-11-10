@@ -5,8 +5,8 @@
 Необходимо создать файл info.txt и заполнить его в виде:
 <ul>
     <li>Номер телефона
-    <li>api\_id
-    <li>api\_hash
+    <li>api_id
+    <li>api_hash
 </ul>
 
 Для получения API передйдите по  <a href="https://my.telegram.org/apps">ссылке</a>
