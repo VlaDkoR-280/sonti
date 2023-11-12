@@ -15,25 +15,22 @@ def Start():
     return client
 
 def status(client, username):
-	print('Наш пользователь: ', username)
 	try:
 		entity = client.get_entity(username)
 		return entity.first_name, (str(entity.status)[:str(entity.status).find('(')])
 	except Exception as e:
 		print(f'Не удалось получить информацию о пользователе: {e}')
 
-def watchOfUsers(usernames):
+def watchOfUsers(usernames, cout):
 	client = Start() 
 	try: 
 		while (1):
 			for username in usernames: #нужно добавить проверку на существование пользователя
-				print('Проверка пользователя: ', usernames)
 				name, statusOfUser = status(client, username)
 				if statusOfUser == 'UserStatusOnline':
-					databaseT.SaveToDB(username, name)
+					databaseT.SaveToDB(username, name, cout)
 			time.sleep(10)
 	except Exception as e:
 		print(f'Ошибка перебора: {e}')
 		client.disconnect()
 	client.disconnect()
-	

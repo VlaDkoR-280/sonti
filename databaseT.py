@@ -13,7 +13,7 @@ class BaseOfUser:
     dt =pd.DataFrame({"Ник":username, "Имя":name, "Время появления в сети":c_time, "Дата появления в сети":c_date}, index=[0])
     self.dataUsers = pd.concat([self.dataUsers, dt])
 '''
-def SaveToDB(username, name):
+def SaveToDB(username, name, cout):
 	dataUsers = pd.DataFrame()
 	time = datetime.now(timezone(timedelta(hours=+3), 'MCK'))
 	c_time = time.strftime('%H:%M:%S')
@@ -21,3 +21,6 @@ def SaveToDB(username, name):
 	dt =pd.DataFrame({"Ник":username, "Имя":name, "Время появления в сети":c_time, "Дата появления в сети":c_date}, index=[0])
 	dataUsers = pd.concat([dataUsers, dt])
 	dataUsers.to_csv('./Users.csv', mode='a', index = False, header = False)
+	if cout:
+		print(username, name,'     ', c_time,'           ', c_date)
+
