@@ -23,16 +23,14 @@ def status(client, username):
 		print(f'Не удалось получить информацию о пользователе: {e}')
 
 def watchOfUsers(usernames):
-	client = Start()
-	users = databaseT.BaseOfUser() 
-	try:
+	client = Start() 
+	try: 
 		while (1):
 			for username in usernames: #нужно добавить проверку на существование пользователя
 				print('Проверка пользователя: ', usernames)
 				name, statusOfUser = status(client, username)
 				if statusOfUser == 'UserStatusOnline':
-					users.add(username, name)
-					users.toCSV()
+					databaseT.SaveToDB(username, name)
 			time.sleep(10)
 	except Exception as e:
 		print(f'Ошибка перебора: {e}')
