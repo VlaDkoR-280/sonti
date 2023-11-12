@@ -1,9 +1,8 @@
 from telethon.sync import TelegramClient
-import csv
-
+import time
 from telethon.tl.functions.messages import GetDialogsRequest
 from telethon.tl.types import InputPeerEmpty
-
+import databaseT
 data = ["Null", "Null", "Null"] # phone, api_id, api_hash
 
 def Start():
@@ -12,26 +11,34 @@ def Start():
             data[i] = f.readline().split('\n')[0]
 
     client = TelegramClient(data[0], data[1], data[2])
-
     client.start()
+    return client
 
-    result = client(GetDialogsRequest(offset_date=None, offset_id=0, offset_peer=InputPeerEmpty(), limit=200, hash = 0))
-    chats = []
-
-    chats.extend(result.chats)
-    return chats
-
-def status(username):
-	data = ["Null", "Null", "Null"]
-	with open('info.txt', 'r') as f:
-		for i in range(3):
-			data[i] = f.readline().split('\n')[0]
-	client = TelegramClient(data[0], data[1], data[2])
-	client.start()
+def status(client, username):
+	print('Наш пользователь: ', username)
 	entity = client.get_entity(username)
 	try:
 		entity = client.get_entity(username)
-		print(str(entity.status)[:str(entity.status).find('(')])
+		return entity.first_name, (str(entity.status)[:str(entity.status).find('(')])
 	except Exception as e:
 		print(f'Не удалось получить информацию о пользователе: {e}')
+
+def watchOfUsers(usernames):
+	client = Start()
+	users = databaseT.BaseOfUser() 
+	i = 4
+	try:
+		while (i):
+			for username in usernames: #нужно добавить проверку на существование пользователя
+				print('Проверка пользователя: ', usernames)
+				name, statusOfUser = status(client, username)
+				if statusOfUser == 'UserStatusOnline':
+					users.add(username, name)
+			i-=1
+			time.sleep(10)
+	except Exception as e:
+		print(f'Ошибка перебора: {e}')
+		client.disconnect()
 	client.disconnect()
+	users.toCSV()			
+	
