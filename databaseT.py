@@ -9,5 +9,6 @@ class BaseOfUser:
   def add(self, username, name):
     time = datetime.now(timezone(timedelta(hours=+3), 'MCK'))
     c_time = time.strftime('%H:%M:%S')
-    dt =pd.DataFrame({"Ник":username, "Имя":name, "В какое время был в сети":c_time}, index=[0])
+    c_date = time.strftime('%d.%m.%Y')
+    dt =pd.DataFrame({"Ник":username, "Имя":name, "Время появления в сети":c_time, "Дата появления в сети":c_date}, index=[0])
     self.dataUsers = pd.concat([self.dataUsers, dt])
