@@ -1,9 +1,8 @@
 from telethon.sync import TelegramClient
-import csv
-
+import time
 from telethon.tl.functions.messages import GetDialogsRequest
 from telethon.tl.types import InputPeerEmpty
-
+import databaseT
 data = ["Null", "Null", "Null"] # phone, api_id, api_hash
 
 def Start():
@@ -31,7 +30,28 @@ def status(username):
 	entity = client.get_entity(username)
 	try:
 		entity = client.get_entity(username)
-		print(str(entity.status)[:str(entity.status).find('(')])
+		return entity.first_name, (str(entity.status)[:str(entity.status).find('(')])
 	except Exception as e:
 		print(f'Не удалось получить информацию о пользователе: {e}')
 	client.disconnect()
+
+def wathcOfUsers(usernames):
+	users = databaseT.BaseOfUser() 
+	i = 5
+	while (i):
+		for username in usernames: #нужно добавить проверку на существование пользователя
+			name, statusOfUser = status(username)
+			if statusOfUser == 'UserStatusOnline':
+				users.append(username, name)
+			i+=1
+			time.sleep(20)
+
+	users().toCSV()			
+
+
+
+
+
+
+
+
