@@ -16,7 +16,6 @@ def Start():
 
 def status(client, username):
 	print('Наш пользователь: ', username)
-	entity = client.get_entity(username)
 	try:
 		entity = client.get_entity(username)
 		return entity.first_name, (str(entity.status)[:str(entity.status).find('(')])
@@ -26,19 +25,17 @@ def status(client, username):
 def watchOfUsers(usernames):
 	client = Start()
 	users = databaseT.BaseOfUser() 
-	i = 4
 	try:
-		while (i):
+		while (1):
 			for username in usernames: #нужно добавить проверку на существование пользователя
 				print('Проверка пользователя: ', usernames)
 				name, statusOfUser = status(client, username)
 				if statusOfUser == 'UserStatusOnline':
 					users.add(username, name)
-			i-=1
+					users.toCSV()
 			time.sleep(10)
 	except Exception as e:
 		print(f'Ошибка перебора: {e}')
 		client.disconnect()
 	client.disconnect()
-	users.toCSV()			
 	
