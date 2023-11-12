@@ -1,0 +1,7 @@
+README.md
+setup.py
+sonti.egg-info/PKG-INFO
+sonti.egg-info/SOURCES.txt
+sonti.egg-info/dependency_links.txt
+sonti.egg-info/requires.txt
+sonti.egg-info/top_level.txt

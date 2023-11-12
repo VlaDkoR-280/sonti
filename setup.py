@@ -1,11 +1,11 @@
-from setuptools import setup
+import setuptools
 
-setup(
+setuptools.setup(
         name='sonti',
         version='1.0',
         description='Module for detecting activity in a telegram',
-        author='',
-        author_email='',
-        packages=['sonti'],
-        install_requires=['pandas', 'telethon', 'time', 'datetime'],
+        author='VlaDkoR-280, Alex-bit-rus, Beescute',
+        author_email='vlad@kor280.ru, aleks-mayorov@inbox.ru, atdany@mail.ru',
+        packages=setuptools.find_packages(),
+        install_requires=['pandas', 'telethon', 'datetime'],
 )
