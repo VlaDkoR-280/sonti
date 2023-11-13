@@ -11,6 +11,6 @@ setuptools.setup(
         include_package_data=True,
         entry_points='''
             [console_scripts]
-            sonti=scripts_sonti.sonti:run
+            sonti=scripts.sonti:run
         ''',
 )

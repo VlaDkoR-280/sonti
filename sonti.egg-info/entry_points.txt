@@ -1,2 +1,2 @@
 [console_scripts]
-sonti = scripts_sonti.sonti:run
+sonti = scripts.sonti:run
