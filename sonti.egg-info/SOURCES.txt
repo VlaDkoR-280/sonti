@@ -1,9 +1,9 @@
 README.md
 setup.py
-scripts_sonti/__init__.py
-scripts_sonti/auth.py
-scripts_sonti/databaseT.py
-scripts_sonti/sonti.py
+scripts/__init__.py
+scripts/auth.py
+scripts/data.py
+scripts/sonti.py
 sonti.egg-info/PKG-INFO
 sonti.egg-info/SOURCES.txt
 sonti.egg-info/dependency_links.txt

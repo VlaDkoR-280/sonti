@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import argparse
-from scripts_sonti import auth
+from scripts import auth
 
 
 from colorama import Fore, Style, init

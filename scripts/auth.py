@@ -2,7 +2,7 @@ from telethon.sync import TelegramClient
 import time
 from telethon.tl.functions.messages import GetDialogsRequest
 from telethon.tl.types import InputPeerEmpty
-from scripts_sonti import databaseT
+from scripts import data as db
 data = ["Null", "Null", "Null"] # phone, api_id, api_hash
 
 def Start():
@@ -28,7 +28,7 @@ def watchOfUsers(usernames, cout):
 			for username in usernames: #нужно добавить проверку на существование пользователя
 				name, statusOfUser = status(client, username)
 				if statusOfUser == 'UserStatusOnline':
-					databaseT.SaveToDB(username, name, cout)
+					db.SaveToDB(username, name, cout)
 			time.sleep(10)
 	except Exception as e:
 		print(f'Ошибка перебора: {e}')
