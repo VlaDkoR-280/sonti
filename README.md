@@ -1,5 +1,5 @@
 # sonti
-![knFaXe4](https://github.com/VlaDkoR-280/sonti/assets/64364757/07023529-89be-47f8-8168-bcccaa775b66)
+![sontipng](https://github.com/VlaDkoR-280/sonti/assets/64364757/bd9aa2f3-f266-4071-86af-4ea0c8a8ce44)
 <h2>Информация</h2>
 sonti - утилита для сбора статистики об активности пользователей телеграмма.
 <br>
