@@ -1,5 +1,6 @@
 from telethon.sync import TelegramClient
 import time
+import os
 from telethon.tl.functions.messages import GetDialogsRequest
 from telethon.tl.types import InputPeerEmpty
 from scripts import data as db
@@ -11,7 +12,7 @@ def Auth():
     client.start()
     client.disconnect()
 def Start():
-    client = TelegramClient('~/.telegram.session', data[1], data[2])
+    client = TelegramClient(os.path.join(os.path.expanduser('~'), '.telegram.session'), data[1], data[2])
     client.start()
     return client
 

@@ -20,3 +20,5 @@ pip3 install .
 cd ~
 
 sonti --auth
+
+mv *.session .telegram.session
