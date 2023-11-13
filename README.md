@@ -1,6 +1,7 @@
 # sonti
 <h2>Информация</h2>
-![sonti](https://i.imgur.com/knFaXe4.png)
+![knFaXe4](https://github.com/VlaDkoR-280/sonti/assets/64364757/07023529-89be-47f8-8168-bcccaa775b66)
+<br>
 sonti - утилита для сбора статистики об активности пользователей телеграмма.
 <br>
 Для использования sonti потребуется получить api_id и app_hash, получить их можно <a href="https://my.telegram.org/apps">здесь</a>, 
