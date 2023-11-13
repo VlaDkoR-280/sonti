@@ -2,7 +2,7 @@ from telethon.sync import TelegramClient
 import time
 from telethon.tl.functions.messages import GetDialogsRequest
 from telethon.tl.types import InputPeerEmpty
-import databaseT
+import scripts_sonti.databaseT
 data = ["Null", "Null", "Null"] # phone, api_id, api_hash
 
 def Start():

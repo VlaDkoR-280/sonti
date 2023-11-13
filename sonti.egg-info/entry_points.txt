@@ -1,2 +1,2 @@
 [console_scripts]
-sonti = sonti.sonti.start:Test
+sonti = scripts_sonti.sonti:run

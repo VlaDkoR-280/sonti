@@ -1,6 +1,6 @@
-#! /usr/bin/env python3
+#!/usr/bin/python3
 import argparse
-import auth
+from scripts_sonti import auth
 
 
 from colorama import Fore, Style, init
@@ -76,4 +76,3 @@ def run():
 			print("\033[36mНикнейм     Имя       Время появления в сети   Дата появления в сети\033[0m")
 			auth.watchOfUsers(usernames, True)
 		else: auth.watchOfUsers(usernames, False)
-run()
