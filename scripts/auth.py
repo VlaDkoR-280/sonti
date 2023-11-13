@@ -11,7 +11,7 @@ def Auth():
     client.start()
     client.disconnect()
 def Start():
-    client = TelegramClient(data[0], data[1], data[2])
+    client = TelegramClient('~/.telegram.session', data[1], data[2])
     client.start()
     return client
 

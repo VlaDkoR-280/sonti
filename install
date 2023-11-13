@@ -16,3 +16,7 @@ echo _API_ID=\'$api_id\' >> scripts/info.py
 echo _APP_HASH=\'$app_hash\' >> scripts/info.py
 
 pip3 install .
+
+cd ~
+
+sonti --auth

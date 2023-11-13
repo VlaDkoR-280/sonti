@@ -45,7 +45,7 @@ def run():
 	service_group.add_argument("--version", "-V", action="store_true", help="\033[36mA\033[0mbout: вывод на печать версий Sonti")
 	service_group.add_argument("--start", "-s", action="store", help="\033[36mA\033[0mbout: Время и дата начала тегирования hh.mm.ss dd.mm.yyyy")	
 	service_group.add_argument("--verbose", "-v", action="store_true", help="\033[36mA\033[0mbout: Вывод таблицы непосредственно в консоль")
-
+	service_group.add_argument("--auth", action="store_true", help="\033[36mA\033[0mbout: Аутентификация в сессии...")
 
 
 	#########################################################################################################
@@ -60,6 +60,9 @@ def run():
 	args = parser.parse_args()
 
 	if args.version:print("Тебя волновать не должно, сопляк")	
+	if args.auth:
+		auth.Auth()
+		print('Аутентификация прошла успешно!\nДля просмтора команд напишите: sonti --help')
 	start = args.start	
 	usernames = args.username
 	if (usernames):
