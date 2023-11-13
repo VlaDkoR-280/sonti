@@ -1,0 +1,18 @@
+#!/bin/bash
+
+echo 'Установка Sonti'
+echo 'Генерация новой сессии'
+echo 'Введите номер телефона: '
+read num
+echo 'Введите api_id: '
+read api_id
+echo 'Введите app_hash: '
+read app_hash
+
+rm -r scripts/info.py 2>/dev/null
+touch scripts/info.py
+echo _NUM=\'$num\' >> scripts/info.py
+echo _API_ID=\'$api_id\' >> scripts/info.py
+echo _APP_HASH=\'$app_hash\' >> scripts/info.py
+
+pip3 install .

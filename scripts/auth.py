@@ -4,8 +4,12 @@ from telethon.tl.functions.messages import GetDialogsRequest
 from telethon.tl.types import InputPeerEmpty
 from scripts import data as db
 from scripts import info
-data = [info._NUM, info._API_ID, info._API_HASH] # phone, api_id, api_hash
+data = [info._NUM, info._API_ID, info._APP_HASH] # phone, api_id, api_hash
 
+def Auth():
+    client = TelegramClient(data[0], data[1], data[2])
+    client.start()
+    client.disconnect()
 def Start():
     client = TelegramClient(data[0], data[1], data[2])
     client.start()
