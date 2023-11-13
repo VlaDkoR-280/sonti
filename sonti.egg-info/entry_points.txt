@@ -1,0 +1,2 @@
+[console_scripts]
+sonti = sonti.sonti.start:Test
