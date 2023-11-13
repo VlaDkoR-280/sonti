@@ -9,7 +9,7 @@
     <li>api_hash
 </ul>
 
-Для получения API передйдите по  <a href="https://my.telegram.org/apps">ссылке</a>
+Для получения API перейдите по <a href="https://my.telegram.org/apps">ссылке</a>
 
 <h2>Потом необходимо выполнить следущие действия</h2>
 
@@ -23,7 +23,8 @@
 
 <h2>Пример запуска программы</h2>
 
-/.sonti.py -v @NickName
+./sonti.py -v @NickName
+<br>
 <i>Для остановки программы нажмите Cntr+C </i>
 <h2>Результаты</h2>
 
