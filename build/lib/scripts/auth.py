@@ -33,7 +33,7 @@ def LoopScan(breakLoop, usernames, cout):
 			if statusOfUser == 'UserStatusOnline':
 				db.SaveToDB(username, name, cout)
 		time.sleep(5)
-	print("Выход из программы, подождите...")
+	print("Выход из программы...")
 	client.disconnect()
 
 def LoopInput(breakLoop):
