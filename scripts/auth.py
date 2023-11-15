@@ -25,32 +25,29 @@ def status(client, username):
 	except Exception as e:
 		print(f'Не удалось получить информацию о пользователе: {e}')
 
-def watchOfUsers(usernames, cout):
+def LoopScan(breakLoop, usernames, cout):
 	client = Start()
-	breakLoop = Value('i', 0) 
-	def LoopScan(breakLoop):
-		while not(breakLoop.value):
-			for username in usernames: #нужно добавить проверку на существование пользователя
-				name, statusOfUser = status(client, username)
-				if statusOfUser == 'UserStatusOnline':
-					db.SaveToDB(username, name, cout)
-				time.sleep(5)
-		print("Выход из программы")
-	def LoopInput(breakLoop):
-		while(not(breakLoop.value)):
-			line = os.read(0, 1024).decode()
-			if line == 'q\n':
-				breakLoop.value = 1
-	try:
-		processScan = Process(target=LoopScan, args=(breakLoop,))
-		processInput = Process(target=LoopInput, args=(breakLoop,))
-		processInput.start()		
-		processScan.start()
-
-		processInput.join()
-		processScan.join()
-		
-	except Exception as e:
-		print(f'Ошибка перебора: {e}')
-		client.disconnect()
+	while not breakLoop.value:
+		for username in usernames:
+			name, statusOfUser = status(client, username)
+			if statusOfUser == 'UserStatusOnline':
+				db.SaveToDB(username, name, cout)
+		time.sleep(5)
+	print("Выход из программы...")
 	client.disconnect()
+
+def LoopInput(breakLoop):
+	while not breakLoop.value:
+		line = os.read(0,1024).decode()
+		if line == 'q\n':
+			breakLoop.value = 1
+
+def watchOfUsers(usernames, cout):
+	breakLoop = Value('i', 0)
+	processScan = Process(target=LoopScan, args=(breakLoop, usernames, cout))
+	processInput = Process(target=LoopInput, args=(breakLoop,))
+	processInput.start()		
+	processScan.start()
+	
+	processInput.join()
+	processScan.join()
