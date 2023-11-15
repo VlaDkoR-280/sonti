@@ -13,7 +13,7 @@ sonti - утилита для сбора статистики об активн�
     <li>git clone https://github.com/VlaDkoR-280/sonti.git
     <li>cd sonti
     <li>chmod +x install
-    <li>./install
+    <li>./install (Для Debian: ./install --break-system-packages)
 </ol>
 <br>
 Далее следуем инструкциям на экране

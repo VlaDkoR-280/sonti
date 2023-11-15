@@ -62,7 +62,7 @@ def run():
 	if args.version:print("Тебя волновать не должно, сопляк")	
 	if args.auth:
 		auth.Auth()
-		print('Аутентификация прошла успешно!\nДля просмтора команд напишите: sonti --help')
+		print('Аутентификация прошла успешно!\nДля просмотра команд введите: sonti --help')
 	start = args.start	
 	usernames = args.username
 	if (usernames):
