@@ -7,7 +7,7 @@ setuptools.setup(
         author='VlaDkoR-280, Alex-bit-rus, Beescute',
         author_email='vlad@kor280.ru, aleks-mayorov@inbox.ru, atdany@mail.ru',
         packages=setuptools.find_packages(),
-        install_requires=['pandas', 'telethon', 'datetime'],
+        install_requires=['pandas', 'telethon', 'datetime', 'colorama', 'multiprocess'],
         include_package_data=True,
         entry_points='''
             [console_scripts]
